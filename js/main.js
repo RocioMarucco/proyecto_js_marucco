@@ -3,7 +3,7 @@ reservar turnos para picnics en el lugar*/
 
 
 //***** PRE ENTREGA 1
-/*
+
 let flag = 0;
 
 
@@ -43,53 +43,3 @@ calcularPrecioFinal ();
 flag = parseInt (prompt ("Presione 0 para seguir comprando o cualquier otro número para salir"));
 
 }
-
-*/
-
-
-// *****PRE ENTREGA DOS
-
-const carrito = [];
-class Producto{
-    constructor(id, nombre, precio, stock){
-        this.id = id;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-    }
-}
-
-const producto0 = new Producto(0, "Aceite esencial de lavanda", 500, 10);
-const producto1 = new Producto(1, "Vela perfumada", 800, 25);
-const producto2 = new Producto(2, "Ramo de flores secas", 700, 20);
-const producto3 = new Producto(3, "Jabon tocador de lavanda", 200, 30);
-const producto4 = new Producto(4, "Bombas aromaticas", 600, 15);
-
-const productos = [producto0, producto1, producto2, producto3, producto4];
-
-
-let mensajePantalla = "***LAVANDAR ELIO - LISTA DE PRODUCTOS*** \n Indique el número de producto que desea comprar \n"
-
-for (producto of productos){
-    mensajePantalla += `${producto.id} - ${producto.nombre} - $ ${producto.precio} \n`
-
-}
-
-let opcionUsuario = parseInt (prompt (mensajePantalla));
-
-const productoElegido = productos.find (producto => producto.id == opcionUsuario);
-
-
-productoElegido.forEach(producto => function () {
-
-    agregarAlCarrito (producto);
-
-    function agregarAlCarrito (productoAComprar){
-        carrito.push (productoAComprar);
-        console.table (carrito);
-
-        alert ("Se ha agregado ${productoElegido.nombre} al carrito");
-
-    }
-    
-});
